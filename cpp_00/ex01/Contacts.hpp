@@ -7,14 +7,25 @@
 class Contact
 {
 	private:
-		std::string first_name;
-		// const char *last_name;
+		std::string firstName;
+		std::string lastName;
+		std::string nickName;
 		std::string number;
+		std::string darkestSecret;
+		int searchID;
 	public:
 		void setName(std::string name);
+		void setLastName(std::string lName);
+		void setNickName(std::string nName);
 		void setNumber(std::string num);
-		std::string GetName();
-		std::string GetNumber();
+		void setDarkestSecret(std::string dSecret);
+		void setSearchID(int index);
+		std::string GetName(void);
+		std::string GetLastName(void);
+		std::string GetNickName(void);
+		std::string GetNumber(void);
+		std::string GetDS(void);
+		int GetSearchID(void);
 	
 };
 
