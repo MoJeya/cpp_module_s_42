@@ -1,6 +1,6 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA (const std::string& name, Weapon& weapon) : name(name), weapon(weapon) {}
+HumanA::HumanA (const std::string& name, Weapon& weapon) : weapon(weapon), name(name) {}
 
 std::string HumanA::getName()
 {
@@ -14,7 +14,7 @@ std::string HumanA::getWeapon()
 
 void HumanA::attack()
 {
-    std::cout << getName() << "attacks with their" << getWeapon() << '\n';
+    std::cout <<"\033[32m" << getName() << "\033[0m" << " attacks with their " << getWeapon() << '\n';
 }
 
 

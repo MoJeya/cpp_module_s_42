@@ -1,6 +1,6 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string& name): _name(name){}
+HumanB::HumanB(const std::string& name) : _name(name){}
 
 std::string HumanB::getName()
 {
@@ -20,5 +20,5 @@ void HumanB::setWeapon(Weapon weapon)
 
 void HumanB::attack()
 {
-    std::cout << getName() << "attacks with their" << getWeapon() << '\n';
+    std::cout << "\033[32m" <<  getName() << " attacks with their " << getWeapon() << '\n';
 }
