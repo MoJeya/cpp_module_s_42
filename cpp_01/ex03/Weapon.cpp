@@ -14,5 +14,5 @@ void Weapon::setType(std::string typ)
 
 Weapon::~Weapon()
 {
-    std::cout << "\033[34mcdDESTRUCTED:\t\033[0m" << this->getTyp() << '\n';
+    std::cout << "\033[34mDESTRUCTED:\t\033[0m" << this->getTyp() << '\n';
 }

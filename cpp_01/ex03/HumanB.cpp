@@ -20,5 +20,5 @@ void HumanB::setWeapon(Weapon weapon)
 
 void HumanB::attack()
 {
-    std::cout << "\033[32m" <<  getName() << " attacks with their " << getWeapon() << '\n';
+    std::cout << "\033[32m" <<  getName() << "\033[0m" << " attacks with their " << getWeapon() << '\n';
 }
