@@ -1,4 +1,4 @@
-NAME = replace
+NAME = Harl
 
 CC = g++
 

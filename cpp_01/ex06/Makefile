@@ -1,4 +1,4 @@
-NAME = replace
+NAME = HarlFilter
 
 CC = g++
 

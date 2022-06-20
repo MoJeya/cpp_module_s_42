@@ -3,15 +3,15 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <algorithm>
 
-class reWrite
+class sed
 {
     private:
-        std::string _filePath;
-        std::string _s1;
-        std::string _s2;
+        
     public:
-        reWrite(std::string &filePath, std::string &s1, std::string &s2);
+        static void replace(std::string const &filePath,  char *s1, char *s2);
         void copyContent();
 
 
