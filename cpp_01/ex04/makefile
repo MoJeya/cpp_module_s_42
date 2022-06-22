@@ -2,7 +2,7 @@ NAME = replace
 
 CC = g++
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -std=c++98
 
 FILES = $(shell find * -iname "*.cpp")
 

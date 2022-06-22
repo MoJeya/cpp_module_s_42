@@ -6,13 +6,13 @@
 #    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:15:31 by mjeyavat          #+#    #+#              #
-#    Updated: 2022/06/15 13:56:25 by mjeyavat         ###   ########.fr        #
+#    Updated: 2022/06/21 13:45:49 by mjeyavat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CC = g++
 

@@ -2,7 +2,7 @@ NAME = main
 
 FILES = "./main.cpp"
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = g++
 
