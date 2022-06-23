@@ -69,7 +69,7 @@ void PhoneBook::add(int index)
     }
     else
     {
-        std::cout << "\033[31mEMPTY INPUT FIELDE!\n\033[0m";
+        std::cout << "\n\033[31mEMPTY INPUT FIELDE!\n\033[0m";
     }
     std::cout << "\nPleas Choose between" << '\n';
     std::cout << "\033[32mADD"<< std::setw(18) << "CONTACT\n\033[0m";
@@ -91,10 +91,10 @@ void PhoneBook::search()
     {
         if (std::stoi(index) == this->contacts[i].GetSearchID())
         {
-            std::cout <<"\033[1m\033[33mFIRST NAME:\033[0m"<< std::setw(10) << this->contacts[i].GetName() << std::endl;
-            std::cout <<"\033[1m\033[33mLAST NAME:\033[0m" << std::setw(10) << this->contacts[i].GetLastName() << std::endl;
-            std::cout <<"\033[1m\033[33mNICK NAME:\033[0m" << std::setw(10) << this->contacts[i].GetNickName() << std::endl;
-            std::cout <<"\033[1m\033[33mNUMBER:\033[0m" << std::setw(10) << this->contacts[i].GetNumber() << std::endl;
+            std::cout <<"\033[1m\033[33mFIRST NAME:\033[0m\t"<< std::setw(10) << this->contacts[i].GetName() << std::endl;
+            std::cout <<"\033[1m\033[33mLAST NAME:\033[0m\t" << std::setw(10) << this->contacts[i].GetLastName() << std::endl;
+            std::cout <<"\033[1m\033[33mNICK NAME:\033[0m\t" << std::setw(10) << this->contacts[i].GetNickName() << std::endl;
+            std::cout <<"\033[1m\033[33mNUMBER:\033[0m\t" << std::setw(10) << this->contacts[i].GetNumber() << std::endl;
             std::cout <<"\033[1m\033[33mDARKEST SECRET:\033[0m" << std::setw(10) << this->contacts[i].GetDS() << std::endl;
             std::cout << "\nPleas Choose between" << '\n';
             std::cout << "\033[32mADD"<< std::setw(18) << "CONTACT\n\033[0m";
