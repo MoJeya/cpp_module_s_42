@@ -6,13 +6,17 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:44:25 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/22 19:05:07 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/22 19:24:11 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Fixed.hpp"
 
+
+/**
+ * TODO: Conversion calculation nochmal anschauen
+*/
 
 Fixed::Fixed()
 {

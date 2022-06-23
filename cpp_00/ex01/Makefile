@@ -6,7 +6,7 @@
 #    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/08 20:13:25 by mjeyavat          #+#    #+#              #
-#    Updated: 2022/06/16 17:29:44 by mjeyavat         ###   ########.fr        #
+#    Updated: 2022/06/23 12:39:10 by mjeyavat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ all: $(NAME)
 	@echo "░╚════╝░░░░░░░░░░░░░░░"
 	@echo $(X)
 
-$(NAME):
+$(NAME): $(FILES)
 	$(CC) $(CFLAGS)  $(FILES) -o $(NAME)
 
 clean:

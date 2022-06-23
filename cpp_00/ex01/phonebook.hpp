@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <ctype.h>
+#include <string>
 #include "Contacts.hpp"
 
 
@@ -31,6 +33,7 @@ class PhoneBook
         // int index;
     public:
         PhoneBook(void);
+        void printOptions(void);
         void add(int index);
         void search();
         void display(void);

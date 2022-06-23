@@ -21,7 +21,7 @@ all: $(NAME)
 	@echo "░╚════╝░░░░░░░░░░░░░░░"
 	@echo $(X)
 
-$(NAME):
+$(NAME): $(FILES)
 	$(CC) $(CFLAGS)  $(FILES) -o $(NAME)
 
 clean:

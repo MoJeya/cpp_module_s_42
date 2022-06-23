@@ -1,34 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/23 12:26:48 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/23 12:26:50 by mjeyavat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 
 int main(int argc, char *argv[])
 {
     int i;
-    char out;
+    std::string out;
+    std::string input;
 
     i = 1;
-    out = 0;
     if (argc == 1)
+    {
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return (0);
+    }
     else
     {
-        while (argv[i])
+        while(argv[i])
         {
-            int j;
-
-            j = 0;
-            while (argv[i][j] != '\0')
+            input = argv[i];
+            for(int j = 0; j < static_cast<int>(input.length()); j++)
             {
-                if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-                    out = argv[i][j] - 32;
-                else
-                    out = argv[i][j];
-                std::cout << out;
-                j++;
+                char c = input.at(j);
+                out.append(sizeof(char), std::toupper(c));
             }
             if (argv[i+1] != NULL)
-                std::cout << " ";
+                out.append(sizeof(char), ' ');
             i++;
         }
+        if (out.empty())
+            std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+        else
+            std::cout << out << std::endl;
     }
     return (0);
 }
