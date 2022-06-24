@@ -6,23 +6,27 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:40:07 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/23 19:56:58 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/24 17:17:34 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap default constuctor was called" << std::endl;
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "HI IM ClapTrap: " << name << std::endl;
+	std::cout << "ClapTrap name constuctor was called for: " << name << std::endl;
 	this->_name = name;
 	this->_HitPoints = 10;
 	this->_EnergyPoints = 10;
 	this->_AttackDamage = 0;
-	std::cout << "I Have " << this->_HitPoints << " much Hit Points" << std::endl;
-	std::cout << "I Have " << this->_EnergyPoints << " much Energy Points" << std::endl;
-	std::cout << "I Have " << this->_AttackDamage << " much Atack Damage" << std::endl;
-	std::cout << '\n';
 }
 
 ClapTrap::ClapTrap(ClapTrap &cp)
@@ -32,7 +36,10 @@ ClapTrap::ClapTrap(ClapTrap &cp)
 
 ClapTrap& ClapTrap::operator=(ClapTrap &cp)
 {
-	this->_name = cp.getName();
+	this->_name = cp._name;
+	this->_HitPoints = cp._HitPoints;
+	this->_EnergyPoints = cp._EnergyPoints;
+	this->_AttackDamage = cp._AttackDamage;
 	return *this;
 }
 
@@ -41,7 +48,7 @@ void ClapTrap::attack(const std::string& target)
 	if (this->_EnergyPoints != 0 || this->_HitPoints != 0)
 	{
 		this->_EnergyPoints -=1;
-		std::cout << "ClapTrap " << this->getName() << " attacks " << target << "," << 
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << "," << 
 		"causing " << this->_AttackDamage << " points of damage!" << std::endl; 
 	}
 	else

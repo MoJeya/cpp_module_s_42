@@ -1,4 +1,4 @@
-NAME = scavTrap
+NAME = FragTrap
 
 CC = g++
 

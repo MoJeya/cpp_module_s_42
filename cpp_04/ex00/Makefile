@@ -1,4 +1,4 @@
-NAME = scavTrap
+NAME = Poly
 
 CC = g++
 

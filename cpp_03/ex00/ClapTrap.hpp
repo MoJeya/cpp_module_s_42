@@ -11,6 +11,7 @@ class ClapTrap
 		int _EnergyPoints;
 		int _AttackDamage;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		
 		//copy constructor

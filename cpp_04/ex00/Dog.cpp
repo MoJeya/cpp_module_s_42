@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 20:15:00 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/24 16:17:56 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/24 19:42:22 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/24 19:51:04 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Dog.hpp"
 
-#include "ClapTrap.hpp"
+Dog::Dog()
+{
+	std::cout << "Dog: Default constructor was called" << std::endl;
+	this->_type = "Dog";
+}
 
-class ScavTrap : public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap &cp);
-		~ScavTrap();
-		
-		ScavTrap& operator=(ScavTrap &cp);
-		
-		void attack(const std::string& target);
-		void guardGate( void );
-};
+Dog::Dog(Dog &d)
+{
+	*this = d;
+}
+
+Dog& Dog::operator=(Dog &d)
+{
+	this->_type = d.getType();
+	return *this;
+}
+
+void Dog::makeSound()
+{
+	std::cout << "BARK!" << std::endl;
+}
+
+Dog::~Dog()
+{
+	std::cout << "Dog: deconstructor called" << std::endl;
+}
+
+
