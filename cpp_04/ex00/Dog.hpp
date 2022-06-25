@@ -2,7 +2,7 @@
 
 #include "Animal.hpp"
 
-class Dog : public Animal{
+class Dog : virtual public Animal{
 
 	private:
 
@@ -10,6 +10,5 @@ class Dog : public Animal{
 		Dog();
 		Dog(Dog &d);
 		Dog& operator=(Dog &d);
-		void makeSound();
 		~Dog();
 };

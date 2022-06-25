@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 19:42:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/25 17:54:30 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/25 17:14:43 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/25 17:53:59 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog()
+Cat::Cat()
 {
-	std::cout << "Dog: Default constructor was called" << std::endl;
-	this->_type = "Dog";
+	std::cout << "Cat counstructor was called" << std::endl;
+	this->_type = "Cat";
 }
 
-Dog::Dog(Dog &d)
+Cat::Cat(Cat &c)
 {
-	*this = d;
+	*this = c;
 }
 
-Dog& Dog::operator=(Dog &d)
+Cat& Cat::operator=(Cat &c)
 {
-	this->_type = d.getType();
+	this->_type = c._type;
 	return *this;
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "Dog: deconstructor called" << std::endl;
+	std::cout << "CAT: deconstructor was called" << std::endl;
 }
-
-

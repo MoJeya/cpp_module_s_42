@@ -1,56 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 19:26:57 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/25 18:04:59 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/25 18:23:37 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/25 18:28:53 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Animal: defaut constructor was called" << std::endl;
-	this->_type = "Animal";
+	std::cout << "WrongAnimal: defaut constructor was called" << std::endl;
+	this->_type = "WrongAnimal";
 }
 
-Animal::Animal(Animal &a)
+WrongAnimal::WrongAnimal(WrongAnimal &a)
 {
 	*this = a;
 }
 
-Animal& Animal::operator=(Animal &a)
+WrongAnimal& WrongAnimal::operator=(WrongAnimal &a)
 {
 	this->_type = a._type;
 	return *this;
 }
 
-void Animal::setType(std::string type)
+void WrongAnimal::setType(std::string type)
 {
 	this->_type = type;
 }
 
-std::string Animal::getType()
+std::string WrongAnimal::getType()
 {
 	return this->_type;
 }
 
-void Animal::makeSound()
+void WrongAnimal::makeSound()
 {
-	if (this->_type != "Animal")
+	if (this->_type != "WrongAnimal")
 	{
 		if (this->_type == "Dog")
-			std::cout << this->_type << " Barks " << std::endl;
-		else if (this->_type == "Cat")
-			std::cout << this->_type << " Purs " << std::endl;
+			std::cout << this->_type << " Purs(Wrong Noise) " << std::endl;
+		else if (this->_type == "WrongCat")
+			std::cout << this->_type << " Barks(Wrong Noise) " << std::endl;
 	}
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 	std::cout << this->_type << ": " << "destructed" << std::endl;
 }

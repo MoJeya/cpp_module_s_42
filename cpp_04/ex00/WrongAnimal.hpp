@@ -1,24 +1,23 @@
-
 #pragma once
 
 #include <iostream>
 
-class Animal{
+class WrongAnimal{
 
 	protected:
 		std::string _type;
 	
 	public:
-		Animal();
+		WrongAnimal();
 		//cpy
-		Animal (Animal &a);
+		WrongAnimal (WrongAnimal &a);
 		
-		Animal& operator=(Animal &a);
+		WrongAnimal& operator=(WrongAnimal &a);
 		
 		void setType(std::string name);
 		std::string getType();
 		void makeSound();
 		
-		virtual ~Animal();
+		virtual ~WrongAnimal();
 
 };
