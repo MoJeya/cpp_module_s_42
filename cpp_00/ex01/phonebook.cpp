@@ -87,23 +87,28 @@ void PhoneBook::search()
     std::cout << '\n' << "\033[35mEnter the Index: \033[0m";
     getline(std::cin, index);
     i = 0;
-    while (i < 8 && !this->contacts[0].GetName().empty())
-    {
-        if (std::stoi(index) == this->contacts[i].GetSearchID())
+    if (std::isdigit(index[0]) && index.length() == 1){
+
+        while (i < 8 && !this->contacts[0].GetName().empty())
         {
-            std::cout <<"\033[1m\033[33mFIRST NAME:\033[0m\t"<< std::setw(10) << this->contacts[i].GetName() << std::endl;
-            std::cout <<"\033[1m\033[33mLAST NAME:\033[0m\t" << std::setw(10) << this->contacts[i].GetLastName() << std::endl;
-            std::cout <<"\033[1m\033[33mNICK NAME:\033[0m\t" << std::setw(10) << this->contacts[i].GetNickName() << std::endl;
-            std::cout <<"\033[1m\033[33mNUMBER:\033[0m\t" << std::setw(10) << this->contacts[i].GetNumber() << std::endl;
-            std::cout <<"\033[1m\033[33mDARKEST SECRET:\033[0m" << std::setw(10) << this->contacts[i].GetDS() << std::endl;
-            std::cout << "\nPleas Choose between" << '\n';
-            std::cout << "\033[32mADD"<< std::setw(18) << "CONTACT\n\033[0m";
-            std::cout << "\033[33mSEARCH" << std::setw(15) << "CONTACT\n\033[0m";
-            std::cout << "\033[31mEXIT" << std::setw(19) << "PHONEBOOK\n\033[0m";
-            return ;
+            if ((std::stoi(index) == this->contacts[i].GetSearchID()))
+            {
+                std::cout <<"\033[1m\033[33mFIRST NAME:\033[0m\t"<< std::setw(10) << this->contacts[i].GetName() << std::endl;
+                std::cout <<"\033[1m\033[33mLAST NAME:\033[0m\t" << std::setw(10) << this->contacts[i].GetLastName() << std::endl;
+                std::cout <<"\033[1m\033[33mNICK NAME:\033[0m\t" << std::setw(10) << this->contacts[i].GetNickName() << std::endl;
+                std::cout <<"\033[1m\033[33mNUMBER:\033[0m\t" << std::setw(10) << this->contacts[i].GetNumber() << std::endl;
+                std::cout <<"\033[1m\033[33mDARKEST SECRET:\033[0m" << std::setw(10) << this->contacts[i].GetDS() << std::endl;
+                std::cout << "\nPleas Choose between" << '\n';
+                std::cout << "\033[32mADD"<< std::setw(18) << "CONTACT\n\033[0m";
+                std::cout << "\033[33mSEARCH" << std::setw(15) << "CONTACT\n\033[0m";
+                std::cout << "\033[31mEXIT" << std::setw(19) << "PHONEBOOK\n\033[0m";
+                return ;
+            }
+            i++;
         }
-        i++;
     }
+    else
+        std::cout << "this is not a NUMBER!" << std::endl;
     std::cout << "Nothing to be found!" << '\n';
     std::cout << "\nPleas Choose between" << '\n';
     std::cout << "\033[32mADD"<< std::setw(18) << "CONTACT\n\033[0m";
@@ -128,7 +133,7 @@ void PhoneBook::display(void)
             : std::cout << std::setw(10) << std::right << this->contacts[i].GetName() << "|";
         (this->contacts[i].GetLastName().length() >= 10) ? std::cout << std::setw(10) << std::right << this->contacts[i].GetLastName().substr(0, 9) + "." << "|"
             : std::cout << std::setw(10) << std::right << this->contacts[i].GetLastName() << "|";
-        (this->contacts[i].GetNickName().length() >= 10) ? std::cout << std::setw(10) << std::right << this->contacts[i].GetNickName().substr(0, 9) + "." << "|"
+        (this->contacts[i].GetNickName().length() >= 10) ? std::cout << std::setw(10) << std::right << this->contacts[i].GetNickName().substr(0, 9) + "." << "|" << '\n'
             : std::cout << std::setw(10) << std::right << this->contacts[i].GetNickName() << "|\n";
         i++;
     }
