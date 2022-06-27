@@ -6,7 +6,7 @@
 #    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:15:31 by mjeyavat          #+#    #+#              #
-#    Updated: 2022/06/21 13:45:49 by mjeyavat         ###   ########.fr        #
+#    Updated: 2022/06/27 13:08:25 by mjeyavat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CC = g++
 
 FILES = $(shell find ./* -iname "*.cpp")
 
+OBJ = $(FILES:.cpp=.o)
+
 all: $(NAME)
 	@echo $(RED)
 	@echo "░█████╗░░░░░░░░░░░░░░░"
@@ -28,8 +30,8 @@ all: $(NAME)
 	@echo "░╚════╝░░░░░░░░░░░░░░░"
 	@echo $(Xcd)
 
-$(NAME):
-	$(CC) $(CFLAGS)  $(FILES) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS)  $(OBJ) -o $(NAME)
 
 clean:
 	rm -f -r *.o

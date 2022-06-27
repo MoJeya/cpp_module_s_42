@@ -1,14 +1,15 @@
 NAME = main
 
-FILES = "./main.cpp"
+FILES = ./main.cpp
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = g++
 
+OBJ = $(FILES:.cpp=.o)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(FILES) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 all: $(NAME)
 

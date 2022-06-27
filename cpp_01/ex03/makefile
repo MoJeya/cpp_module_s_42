@@ -1,4 +1,4 @@
-NAME = main
+NAME = violence
 
 CC = g++
 
@@ -6,10 +6,12 @@ CFLAGS = -Werror -Wextra -Wall -std=c++98
 
 FILES = $(shell find * -iname "*.cpp")
 
+OBJ = $(FILES:.cpp=.o)
+
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(FILES) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f -r *.o
