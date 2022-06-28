@@ -17,6 +17,11 @@ WrongCat& WrongCat::operator=(WrongCat &wr)
 	return *this;
 }
 
+void WrongCat::makeSound()
+{
+	std::cout << this->_type << " Barks(Wrong Noise) " << std::endl;
+}
+
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat: deconstructor called" << std::endl;

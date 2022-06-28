@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 19:42:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/25 17:54:30 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/27 14:35:44 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ Dog& Dog::operator=(Dog &d)
 {
 	this->_type = d.getType();
 	return *this;
+}
+
+void Dog::makeSound()
+{
+	std::cout << this->_type << " Purs " << std::endl;
 }
 
 Dog::~Dog()

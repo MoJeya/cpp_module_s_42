@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:29:57 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/13 19:54:20 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:24:09 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /**
  * The I=Object on this function is
- * created on the heap
+ * created on the Stack
 */
 
 void randomChump(std::string name)

@@ -6,13 +6,13 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:25:34 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/13 20:25:40 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/28 12:20:09 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main(int argc, char *argv[])
+int main(void)
 {
     Zombie *horde;
 
@@ -25,8 +25,5 @@ int main(int argc, char *argv[])
         i++;
     }
     delete [] horde; // delete an arry of objects
-    (void) argc;
-    (void) argv;
-    // system("leaks zombie");
     return (0);
 }

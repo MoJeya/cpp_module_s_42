@@ -6,19 +6,19 @@
 #    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:15:31 by mjeyavat          #+#    #+#              #
-#    Updated: 2022/06/27 13:08:25 by mjeyavat         ###   ########.fr        #
+#    Updated: 2022/06/28 12:21:29 by mjeyavat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME 		:= 	zombie
 
-CFLAGS = -Werror -Wextra -Wall -std=c++98
+CXX			:= c++
+CPPFLAGS 	:= -Werror -Wextra -Wall -std=c++98
 
-CC = g++
 
-FILES = $(shell find ./* -iname "*.cpp")
-
-OBJ = $(FILES:.cpp=.o)
+FILES 		:= $(shell find ./* -iname "*.cpp")
+OBJ 		:= $(FILES:.cpp=.o)
+HEADERS		:= $(shell find ./* -name "*.hpp")
 
 all: $(NAME)
 	@echo $(RED)
@@ -28,10 +28,13 @@ all: $(NAME)
 	@echo "██║░░██╗╚═██╔═╝╚═██╔═╝"
 	@echo "╚█████╔╝░░╚═╝░░░░╚═╝░░"
 	@echo "░╚════╝░░░░░░░░░░░░░░░"
-	@echo $(Xcd)
+	@echo $(X)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS)  $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CPPFLAGS) -O3 -c $< -o $@
 
 clean:
 	rm -f -r *.o

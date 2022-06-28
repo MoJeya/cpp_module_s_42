@@ -6,11 +6,16 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:01:05 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/13 20:01:08 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/28 12:06:58 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie(void)
+{
+    std::cout << "\033[34m CONSTURCTOR WAS CALLED\033[0m" << std::endl;
+}
 
 void Zombie::announce(void)
 {

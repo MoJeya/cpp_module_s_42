@@ -1,22 +1,45 @@
-NAME = replace
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/28 13:04:59 by mjeyavat          #+#    #+#              #
+#    Updated: 2022/06/28 13:24:40 by mjeyavat         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = g++
+NAME 		:= 	replace
 
-CFLAGS = -Werror -Wextra -Wall -std=c++98
+CXX			:= c++
+CPPFLAGS 	:= -Werror -Wextra -Wall -std=c++98
 
-FILES = $(shell find * -iname "*.cpp")
 
-OBJ = $(FILES:.cpp=.o)
+FILES 		:= $(shell find ./* -iname "*.cpp")
+OBJ 		:= $(FILES:.cpp=.o)
+HEADERS		:= $(shell find ./* -name "*.hpp")
 
 all: $(NAME)
+	@echo $(RED)
+	@echo "░█████╗░░░░░░░░░░░░░░░"
+	@echo "██╔══██╗░░██╗░░░░██╗░░"
+	@echo "██║░░╚═╝██████╗██████╗"
+	@echo "██║░░██╗╚═██╔═╝╚═██╔═╝"
+	@echo "╚█████╔╝░░╚═╝░░░░╚═╝░░"
+	@echo "░╚════╝░░░░░░░░░░░░░░░"
+	@echo $(X)
 
-$(NAME):$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CPPFLAGS) -O3 -c $< -o $@
 
 clean:
 	rm -f -r *.o
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f -r $(NAME)
 
-re: fclean all	
+re: fclean all

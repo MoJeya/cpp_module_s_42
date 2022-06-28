@@ -13,7 +13,13 @@ class Harl
         void error(void);
     public:
          void complain(std::string level);
-
+        enum m 
+        {
+            DEBUG,
+            INFO,
+            WARNING,
+            ERROR
+        };
 };
 
 #endif

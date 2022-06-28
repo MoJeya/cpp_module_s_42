@@ -1,58 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/28 13:25:36 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/28 18:27:48 by mjeyavat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void Harl::debug(void)
 {
-    std::cout << "[DEBUG]" << '\n';
+    std::cout << "[DEBUG]" << std::endl;
     std::cout << "I love having extra bacon for" <<
-        "my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << '\n';
-    std::cout << '\n' << "[INFO]" << '\n';
-    std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put"
-    << "enough bacon in my burger! If you did, I wouldn’t be asking for more!"
-    << '\n';
-    std::cout << '\n' << "[WARNING]" << '\n';
-    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for"<<'\n'
-        <<"years whereas you started working here since last month" <<'\n';
-    std::cout << '\n' << "[ERROR]" << '\n';
-    std::cout << "This is unacceptable! I want to speak to the manager now."<< '\n';
-
+        "my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
 
 void Harl::warning(void)
 {
-    std::cout << '\n' << "[WARNING]" << '\n';
-    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for\nyears whereas you started working here since last month" <<
-        '\n';
-    std::cout << '\n' << "[ERROR]" << '\n';
-    std::cout << "This is unacceptable! I want to speak to the manager now."<< '\n';
+    std::cout << "[WARNING]" << std::endl;
+    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for"
+        << "years whereas you started working here since last month" << std::endl;
 }
 
 void Harl::info(void)
 {
-    std::cout << '\n' << "[INFO]" << '\n';
+    std::cout << "[INFO]" << std::endl;
     std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put"
     << "enough bacon in my burger! If you did, I wouldn’t be asking for more!"
-    << '\n';
-    std::cout << '\n' << "[WARNING]" << '\n';
-    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for"<<'\n'
-        <<"years whereas you started working here since last month" <<'\n';
-    std::cout << '\n' << "[ERROR]" << '\n';
-    std::cout << "This is unacceptable! I want to speak to the manager now."<< '\n';
+    << std::endl;
 }
 
 void Harl::error(void)
 {
-    std::cout << '\n' << "[ERROR]" << '\n';
+    std::cout << "[ERROR]" << std::endl;
     std::cout << "This is unacceptable! I want to speak to the manager now."
-    << '\n';
+    << std::endl;
 }
 
-enum m 
-{
-    debug,
-    info,
-    warning,
-    error
-};
 
 void Harl::complain(std::string level)
 {
@@ -63,18 +51,15 @@ void Harl::complain(std::string level)
     while (level != message[option])
         option++;
     
-   switch (option)
+    switch (option)
     {
-        case 0:
+        case DEBUG:
             debug();
-            break;
-        case 1:
+        case INFO:
             info();
-            break;
-        case 2:
+        case WARNING:
             warning();
-            break;
-        case 3:
+        case ERROR:
             error();
             break;
         default:

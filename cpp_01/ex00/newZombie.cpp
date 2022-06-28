@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:29:23 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/13 19:56:15 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/28 12:08:44 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * this Function is
  * creates an new object on the
- * !stack
+ * !heap
  * and thats why it has to be destroyed 
  * after we dont need it anymore
  * ?delete <name of object>

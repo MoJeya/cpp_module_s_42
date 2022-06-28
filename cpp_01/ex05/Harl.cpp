@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/28 13:25:36 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/28 13:32:05 by mjeyavat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void Harl::debug(void)
@@ -25,13 +37,6 @@ void Harl::error(void)
     << '\n';
 }
 
-enum m 
-{
-    debug,
-    info,
-    warning,
-    error
-};
 
 void Harl::complain(std::string level)
 {
@@ -44,16 +49,16 @@ void Harl::complain(std::string level)
     
     switch (option)
     {
-        case 0:
+        case DEBUG:
             debug();
             break;
-        case 1:
+        case INFO:
             info();
             break;
-        case 2:
+        case WARNING:
             warning();
             break;
-        case 3:
+        case ERROR:
             error();
             break;
         default:
