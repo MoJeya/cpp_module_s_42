@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:14:43 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/27 14:33:43 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:51:46 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat()
 {
-	std::cout << "Cat counstructor was called" << std::endl;
+	// std::cout << "\033[34mCat counstructor was called\033[0m" << std::endl;
 	this->_type = "Cat";
 }
 
@@ -36,5 +36,5 @@ void Cat::makeSound()
 
 Cat::~Cat()
 {
-	std::cout << "CAT: deconstructor was called" << std::endl;
+	// std::cout << "\033[32mCAT: deconstructor was called\033[0m" << std::endl;
 }

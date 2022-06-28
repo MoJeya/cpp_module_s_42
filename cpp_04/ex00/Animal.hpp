@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/28 19:30:13 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/28 19:30:16 by mjeyavat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #pragma once
 
@@ -17,7 +28,7 @@ class Animal{
 		
 		void setType(std::string name);
 		std::string getType();
-		void makeSound();
+		virtual void makeSound();
 		
 		virtual ~Animal();
 

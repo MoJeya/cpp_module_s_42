@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 19:26:57 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/27 14:36:25 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/28 19:30:00 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/06/28 19:30:03 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 Animal::Animal()
 {
-	std::cout << "Animal: defaut constructor was called" << std::endl;
-	this->_type = "Animal";
+	// std::cout << "\033[34mAnimal: defaut constructor was called\033[0m" << std::endl;
 }
 
 Animal::Animal(Animal &a)
@@ -46,5 +45,5 @@ void Animal::makeSound()
 
 Animal::~Animal()
 {
-	std::cout << this->_type << ": " << "destructed" << std::endl;
+	// std::cout << this->_type << ": " << "\033[32mdestructed\033[0m" << std::endl;
 }
