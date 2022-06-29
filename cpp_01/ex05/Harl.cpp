@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:25:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/29 17:08:09 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:06:27 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ void Harl::complain(std::string level)
     int option = 0;
     const char *message[4]
         = {"debug", "info", "warning", "error"};
-    
-    while (level != message[option])
+        
+    while ((option < 4) && level != message[option])
         option++;
-    
     switch (option)
     {
         case DEBUG:

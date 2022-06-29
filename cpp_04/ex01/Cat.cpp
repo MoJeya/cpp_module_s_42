@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:14:43 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/28 18:51:46 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:39:46 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 Cat::Cat()
 {
-	// std::cout << "\033[34mCat counstructor was called\033[0m" << std::endl;
+	std::cout << "\033[34mCat\033[0m : CONSTRUCTOR WAS CALLED" << std::endl;
 	this->_type = "Cat";
+	this->brain = new Brain();
 }
 
 Cat::Cat(Cat &c)
@@ -36,5 +37,6 @@ void Cat::makeSound()
 
 Cat::~Cat()
 {
-	// std::cout << "\033[32mCAT: deconstructor was called\033[0m" << std::endl;
+	std::cout << "\033[32mCAT\033[0m : DECONSTRUCTOR WAS CALLED" << std::endl;
+	delete this->brain;
 }

@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:30:00 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/28 19:30:03 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:55:48 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal()
 {
-	// std::cout << "\033[34mAnimal: defaut constructor was called\033[0m" << std::endl;
+	std::cout << "\033[34mAnimal: defaut constructor was called\033[0m" << std::endl;
 }
 
 Animal::Animal(Animal &a)
@@ -45,5 +45,5 @@ void Animal::makeSound()
 
 Animal::~Animal()
 {
-	// std::cout << this->_type << ": " << "\033[32mdestructed\033[0m" << std::endl;
+	std::cout << "\033[32mAnimal\033[0m"<< ": " << "\033[34mdestructed\033[0m" << std::endl;
 }

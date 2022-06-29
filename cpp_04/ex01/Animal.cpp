@@ -6,11 +6,12 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:30:00 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/28 19:30:03 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:34:51 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+
 
 Animal::Animal()
 {

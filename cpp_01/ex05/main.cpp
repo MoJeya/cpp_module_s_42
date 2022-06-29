@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:12:07 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/29 17:12:10 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:03:13 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int main()
 {
     Harl r;
-    r.complain("info");
+    r.complain(" ");
     std::cout << "\n";
-    r.complain("error");
+    // r.complain("error");
     return (0);
 }
