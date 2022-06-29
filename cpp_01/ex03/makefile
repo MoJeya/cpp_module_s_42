@@ -6,7 +6,7 @@
 #    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 12:29:33 by mjeyavat          #+#    #+#              #
-#    Updated: 2022/06/28 12:29:37 by mjeyavat         ###   ########.fr        #
+#    Updated: 2022/06/29 16:07:24 by mjeyavat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ CPPFLAGS 	:= -Werror -Wextra -Wall -std=c++98
 FILES 		:= $(shell find ./* -iname "*.cpp")
 OBJ 		:= $(FILES:.cpp=.o)
 HEADERS		:= $(shell find ./* -name "*.hpp")
+
+RED			= "\033[34m"
+X			= "\033[0m"
 
 all: $(NAME)
 	@echo $(RED)

@@ -6,11 +6,21 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:23:50 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/28 18:29:16 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:04:35 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rewrite.hpp"
+
+bool checkIfSame(std::string s1, std::string s2)
+{
+    if (s1 == s2)
+    {
+        std::cout << "SAME WORRDS" << std::endl;
+        return true;
+    }
+    return false;
+}
 
 void sed::replace(std::string const &filePath, std::string s1, std::string s2)
 {
@@ -20,7 +30,9 @@ void sed::replace(std::string const &filePath, std::string s1, std::string s2)
     
     std::ifstream InFile(filePath);
     std::ofstream OutFile(filePath + ".replace" , std::ios::trunc);
-    if (InFile && OutFile)
+    if (!InFile.is_open() || !OutFile.is_open())
+        std::cout << "ERROR: UNABLE TO OPEN FILE" << std::endl;
+    else if (checkIfSame(s1, s2) == false)
     {
         if (len != 0)
         {
@@ -34,15 +46,16 @@ void sed::replace(std::string const &filePath, std::string s1, std::string s2)
                     line.insert(pos,s2);
                     pos = line.find(sc1, pos, len);
                 }
-                OutFile << line << '\n';
+                if (InFile.eof())
+                    OutFile << line;
+                else
+                    OutFile << line << std::endl;
             }
             std::cout << "Copy finished" << '\n';
         }
         else
             std::cout << "empty Argument!" << std::endl;
-    }
-    else
-        std::cout << "unable to open file"<< '\n';
+    }        
     InFile.close();
     OutFile.close();
 }
