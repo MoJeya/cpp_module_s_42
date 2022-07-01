@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:13:06 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/29 20:22:14 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/01 15:59:14 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ class Brain{
 	private:
 		std::string ideas[100];
 	public:
-		Brain( void );
+		Brain();
+		Brain( std::string ideas );
 		Brain(Brain &b);
 		Brain& operator=(Brain &b);
-		std::string getIdeas( void );
-		void setIdeas(std::string id);
+		std::string getIdeas( unsigned long index );
+		void setIdeas(const std::string id);
 		~Brain( void );
 };

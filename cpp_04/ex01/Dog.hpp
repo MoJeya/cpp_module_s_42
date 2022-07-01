@@ -6,22 +6,25 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:28:32 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/28 19:28:35 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:52:59 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal{
+class Dog : virtual public Animal{
 
 	private:
-
+		Brain *brain;
 	public:
 		Dog();
 		Dog(Dog &d);
 		Dog& operator=(Dog &d);
-		virtual void makeSound();
+		void makeSound();
+		// virtual std::string getIdea();
+		void setIdeas(Brain &b);
 		~Dog();
 };

@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:30:13 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/28 19:30:16 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:11:52 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Animal{
 		
 		void setType(std::string name);
 		std::string getType();
+		virtual std::string getIdea();
 		virtual void makeSound();
 		
 		virtual ~Animal();
