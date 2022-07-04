@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   IceMateria.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:28:32 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/04 17:07:50 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/04 19:57:07 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/04 20:02:46 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "../inc/IceMateria.hpp"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+IceMateria::IceMateria()
+{
+	this->_mType = "ice";
+}
 
-class Dog : public Animal{
+AMateria* IceMateria::clone() override {return (*this);}
 
-	private:
-		Brain *brain;
-	public:
-		Dog();
-		Dog(Dog &d);
-		Dog& operator=(Dog &d);
-		virtual void makeSound();
-		void setIdeas(Brain &b);
-		std::string getIdea();
-		~Dog();
-};
+

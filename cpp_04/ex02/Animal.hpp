@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:28:32 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/04 17:07:50 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/28 19:30:13 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/04 17:21:06 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
 
-class Dog : public Animal{
+class Animal{
 
-	private:
-		Brain *brain;
+	protected:
+		std::string _type;
+		Animal();
+	
 	public:
-		Dog();
-		Dog(Dog &d);
-		Dog& operator=(Dog &d);
+		//cpy
+		Animal (Animal &a);	
+		Animal& operator=(Animal &a);
+		
+		void setType(std::string name);
+		std::string getType();
+		virtual std::string getIdea();
 		virtual void makeSound();
-		void setIdeas(Brain &b);
-		std::string getIdea();
-		~Dog();
+		
+		virtual ~Animal();
+
 };
+

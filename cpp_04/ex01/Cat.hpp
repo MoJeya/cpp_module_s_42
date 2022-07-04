@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:30:24 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/01 16:52:47 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:09:55 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : virtual public Animal{
+class Cat : public Animal{
 	private:
 		Brain *brain;
 	public:
@@ -23,7 +23,7 @@ class Cat : virtual public Animal{
 		//cpy constructor
 		Cat(Cat &c);
 		Cat& operator=(Cat &c);
-		void makeSound();
-		// virtual std::string getIdea();
+		virtual void makeSound();
+		std::string getIdea();
 		~Cat();
 };

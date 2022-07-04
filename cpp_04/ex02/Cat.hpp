@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:28:32 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/04 17:07:50 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/28 19:30:24 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/04 17:19:47 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal{
-
+class Cat : public Animal{
 	private:
 		Brain *brain;
 	public:
-		Dog();
-		Dog(Dog &d);
-		Dog& operator=(Dog &d);
+		Cat();
+		Cat(Cat &c);
+		Cat& operator=(Cat &c);
 		virtual void makeSound();
-		void setIdeas(Brain &b);
 		std::string getIdea();
-		~Dog();
+		~Cat();
 };

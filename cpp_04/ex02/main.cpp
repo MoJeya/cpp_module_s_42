@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:28:32 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/04 17:07:50 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/06/28 19:28:21 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/04 17:24:54 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal{
 
-	private:
-		Brain *brain;
-	public:
-		Dog();
-		Dog(Dog &d);
-		Dog& operator=(Dog &d);
-		virtual void makeSound();
-		void setIdeas(Brain &b);
-		std::string getIdea();
-		~Dog();
-};
+int main()
+{
+
+	// const Animal *a = new Animal(); // -> doesnt work because the class is non instantiable
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	
+	delete j;
+	delete i;
+	return(0);
+}
