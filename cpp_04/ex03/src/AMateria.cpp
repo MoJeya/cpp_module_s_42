@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:24 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/04 19:54:49 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:55:04 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ std::string const & AMateria::getType() const
 	return (this->_mType);
 } //returns the materia type
 		
-void AMateria::use(ICharacter& target)
-{
-	(void) target;
-}
-
 AMateria::~AMateria()
 {
 	std::cout << "AMateria deconstructor was called" << std::endl;	

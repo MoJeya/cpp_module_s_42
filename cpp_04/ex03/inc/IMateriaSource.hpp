@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IceMateria.cpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 19:57:07 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/06 16:56:56 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/06 10:38:19 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/06 16:42:59 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/IceMateria.hpp"
-#include "../inc/ICharacter.hpp"
+#pragma once
 
-IceMateria::IceMateria()
+#include <iostream>
+#include "./AMateria.hpp"
+
+class IMateriaSource
 {
-	this->_mType = "ice";
-}
-
-AMateria* IceMateria::clone() const {
-	return new IceMateria();
-}
-
-void IceMateria::use(ICharacter& target)
-{
-	std::cout << "* shoots an ice bolt at " << target.getName() << " * " << std::endl;
-}
-
-IceMateria::~IceMateria()
-{
-	std::cout << "Deconsturctor was called!" << std::endl;
-}
+	public:
+	virtual ~IMateriaSource() {}
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
+};
