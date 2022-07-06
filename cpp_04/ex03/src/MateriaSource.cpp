@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:24:06 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/06 18:50:57 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:56:25 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,12 @@ void MateriaSource::learnMateria(AMateria *m)
 
 	for(int i = 0; i < 4; i++)
 	{
-		std::cout << "I: " << i << std::endl;
+		// std::cout << "I: " << i << std::endl;
 		if (!this->_inventory[i])
+		{
 			this->_inventory[i] = m;
-		return ;	
+			return ;	
+		}
 	}
 }
 
