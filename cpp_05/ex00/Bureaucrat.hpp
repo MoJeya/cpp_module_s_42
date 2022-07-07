@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:03:50 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/07 21:28:21 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 00:14:55 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Bureaucrat{
 		
 		void setName(std::string &name);
 		void setGrade(int grade);
-		std::string getName();
-		int getGrade();
+		std::string getName() const;
+		int getGrade() const;
 
 		class GradeToHigh : public std::exception {
 			   const char * what () const throw () {
@@ -42,7 +42,7 @@ class Bureaucrat{
 
 		class GradeToLow : public std::exception {
 			const char * what () const throw () {
-				return "\033[31mGrade can't be lower than 0\033[0m";
+				return "\033[31mGrade can't be lower than 1\033[0m";
 			}
 		};
 

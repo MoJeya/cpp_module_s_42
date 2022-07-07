@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/07 21:28:08 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 00:15:29 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,15 @@ void Bureaucrat::setGrade(int grade)
 	else if (grade > 150)
 		throw Bureaucrat::GradeToHigh();
 	else
-		this->_grade = grade;
-	
+		this->_grade = grade;	
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return (this->_name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 	return (this->_grade);
 }
@@ -86,6 +85,6 @@ Bureaucrat& Bureaucrat::operator--(int){
 
 std::ostream& operator<<(std::ostream& cout, Bureaucrat &br)
 {
-	cout << br.getName() << " bureaucrat grade " << br.getGrade();
+	cout << br.getGrade();
 	return (cout);
 }
