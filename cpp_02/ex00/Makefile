@@ -1,20 +1,49 @@
-NAME = Fixed
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/07 14:10:28 by mjeyavat          #+#    #+#              #
+#    Updated: 2022/07/07 14:10:31 by mjeyavat         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = g++
 
-CFLAGS = -Werror -Wall -Wextra -std=c++98
+NAME 		:= 	a.out
 
-FILES = $(shell find * -iname "*.cpp")
+CXX			:= c++
+CPPFLAGS 	:= -Werror -Wextra -Wall -std=c++98
+
+
+FILES 		:= $(shell find ./* -iname "*.cpp")
+OBJ 		:= $(FILES:.cpp=.o)
+HEADERS		:= $(shell find ./* -name "*.hpp")
+
+RED			= "\033[34m"
+X			= "\033[0m"
 
 all: $(NAME)
+	@echo $(RED)
+	@echo "░█████╗░░░░░░░░░░░░░░░"
+	@echo "██╔══██╗░░██╗░░░░██╗░░"
+	@echo "██║░░╚═╝██████╗██████╗"
+	@echo "██║░░██╗╚═██╔═╝╚═██╔═╝"
+	@echo "╚█████╔╝░░╚═╝░░░░╚═╝░░"
+	@echo "░╚════╝░░░░░░░░░░░░░░░"
+	@echo $(X)
 
-$(NAME): $(FILES)
-	$(CC) $(CFLAGS) $(FILES) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CPPFLAGS) -O3 -c $< -o $@
 
 clean:
-	rm -f -r *.o
+	rm -f -r $(shell find ./* -iname "*.o")
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f -r $(NAME)
 
 re: fclean all
