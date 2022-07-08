@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 00:15:29 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:50:50 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat()
 	std::cout << "Standart constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string &name, int grade) : _name(name) 
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) 
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeToLow();
@@ -85,6 +85,6 @@ Bureaucrat& Bureaucrat::operator--(int){
 
 std::ostream& operator<<(std::ostream& cout, Bureaucrat &br)
 {
-	cout << br.getGrade();
+	cout << br.getName() << " Bureaucrat grade "<< br.getGrade();
 	return (cout);
 }

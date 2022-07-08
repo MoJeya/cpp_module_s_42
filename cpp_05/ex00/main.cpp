@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:12:27 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 00:14:40 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:57:35 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 int main (void)
 {
-	std::string name = "Bob";
-	std::string &nameRef = name;
+	
 	try{
-		Bureaucrat *br = new Bureaucrat(nameRef, 1); //im constructor wird schon der fehler geworfen und im catch wird er ausgegeben
+		Bureaucrat *br = new Bureaucrat("Bob", 1); //im constructor wird schon der fehler geworfen und im catch wird er ausgegeben
 		//*wenn erfolgreich dann wird alles ab zeile 22 ausgeführt
 		br->setGrade(100);
-		std::cout << "test" << std::endl;
 		std::cout << *br << std::endl;
+		//////////////////////////////////////////////////////////////////////
+		//*							WRONG GRADE 							//
+		//////////////////////////////////////////////////////////////////////
+		Bureaucrat *br2 = new Bureaucrat("Chunkz", 0);
+		std::cout << *br2 << std::endl; 
 	}catch(std::exception & e){
 		std::cout << e.what() << std::endl;
 	}

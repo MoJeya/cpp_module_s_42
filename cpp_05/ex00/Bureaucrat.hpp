@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:03:50 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 00:14:55 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:50:36 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Bureaucrat{
 		int 				_grade;
 	public:
 		Bureaucrat();
-		Bureaucrat(std::string &name, int grade);
+		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(Bureaucrat &br);
 		
 		Bureaucrat& operator=(Bureaucrat &br);
