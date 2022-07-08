@@ -6,11 +6,12 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 14:50:50 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 23:18:55 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -60,6 +61,17 @@ void Bureaucrat::setGrade(int grade)
 		throw Bureaucrat::GradeToHigh();
 	else
 		this->_grade = grade;	
+}
+
+void Bureaucrat::signForm(Form& fr)
+{
+	try{
+		fr.beSigned(*this);
+		std::cout << this->getName() << " signed " << fr;
+	}catch(std::exception & e){
+		std::cout << this->getName() << " couldn’t sign " << fr;
+		std::cout << e.what() << std::endl;
+	}
 }
 
 std::string Bureaucrat::getName() const

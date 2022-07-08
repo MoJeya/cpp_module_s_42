@@ -6,11 +6,12 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:12:27 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 14:57:35 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 23:18:16 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "inc/Bureaucrat.hpp"
+#include "inc/Form.hpp"
 
 int main (void)
 {

@@ -6,13 +6,23 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:03:50 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 14:50:36 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 22:57:00 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "Form.hpp"
+
+/**
+ * Lastly, add a signForm() member function to the Bureaucrat. If the form got signed,
+it will print something like:
+<bureaucrat> signed <form>
+Otherwise, it will print something like:
+<bureaucrat> couldn’t sign <form> because <reason>.
+Implement and turn in some tests to ensure everything works as expected.
+*/
 
 class Bureaucrat{
 
@@ -33,7 +43,7 @@ class Bureaucrat{
 		void setGrade(int grade);
 		std::string getName() const;
 		int getGrade() const;
-
+		void signForm(Form &fr);
 		class GradeToHigh : public std::exception {
 			   const char * what () const throw () {
 				return "\033[31mGrade can't be bigger than 150\033[0m";
