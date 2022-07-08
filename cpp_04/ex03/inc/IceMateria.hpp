@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:05:10 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/06 16:56:23 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 13:48:15 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ class IceMateria : public AMateria {
 
 	public:
 		IceMateria();
-		IceMateria(IceMateria const & Ice);
-		const IceMateria& operator=(IceMateria &);
 		AMateria* clone() const;
 		void use(ICharacter& target);
-		~IceMateria();
 };

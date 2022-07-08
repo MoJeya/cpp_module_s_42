@@ -6,12 +6,14 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:14:09 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/06 18:47:42 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:34:01 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Character.hpp"
 #include "../inc/ICharacter.hpp"
+#include "../inc/IceMateria.hpp"
+#include "../inc/CureMateria.hpp"
 
 Character::Character() {}
 
@@ -45,10 +47,22 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (this->mat.getMateriaType(idx) == "ice")
-		std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
-	else if (this->mat.getMateriaType(idx) == "cure")
-		std::cout << "* heals " << target.getName() << "'s wounds "<< std::endl;
+	if (this->mat.getMateriaType(idx)->getType() == "ice")
+	{
+		IceMateria *iceTmp = new IceMateria();
+		iceTmp->use(target);
+		delete iceTmp;
+		delete this->mat.getMateriaType(idx);
+	}
+	else if (this->mat.getMateriaType(idx)->getType() == "cure")
+	{
+		CureMateria *cureTmp = new CureMateria();
+		cureTmp->use(target);
+		delete cureTmp;
+		delete this->mat.getMateriaType(idx);
+	}
+	else
+		std::cout << "no valid material" << std::endl;
 }
 
 Character::~Character()

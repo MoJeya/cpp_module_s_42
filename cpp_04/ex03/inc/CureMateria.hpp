@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*   CureMateria.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 10:47:15 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 14:01:42 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/08 11:35:30 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/08 14:14:45 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
-#include "IMateriaSource.hpp"
-#include "AMateria.hpp"
 
-class MateriaSource : public IMateriaSource {
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+
+class CureMateria : public AMateria {
 	
-	protected:
-		AMateria* _inventory[4];
+	private:
+	
 	public:
-		MateriaSource();
-		virtual ~MateriaSource();
-		MateriaSource(MateriaSource &m);
-		virtual void dropFromInv(int idx);
-		virtual AMateria* getMateriaType(int idx);
-		const MateriaSource& operator=(MateriaSource &m);
-		virtual void learnMateria(AMateria* m);
-		virtual AMateria* createMateria(std::string const & type);
+		CureMateria();
+		AMateria* clone() const;
+		void use(ICharacter& target);
+		~CureMateria();
+
 };

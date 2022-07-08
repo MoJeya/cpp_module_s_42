@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:24 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/06 16:55:04 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 12:28:38 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AMateria::AMateria(AMateria &Am)
 	*this = Am;
 }
 
-const AMateria& AMateria::operator=(AMateria &Am)
+AMateria& AMateria::operator=(AMateria &Am)
 {
 	if (this != &Am)
 		this->_mType = Am._mType;
@@ -36,5 +36,5 @@ std::string const & AMateria::getType() const
 		
 AMateria::~AMateria()
 {
-	std::cout << "AMateria deconstructor was called" << std::endl;	
+	std::cout << "\033[31mAMateria\033[0m: De -constructor was called" << std::endl;	
 }

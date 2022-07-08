@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:24:06 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/06 19:00:39 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:33:06 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ MateriaSource::MateriaSource()
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource: De -constructor was called " << std::endl;
+	std::cout << "\033[31mMateriaSource\033[0m: De -constructor was called " << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource &m)
@@ -36,10 +36,10 @@ void MateriaSource::dropFromInv(int idx)
 		this->_inventory[idx] = nullptr;
 }
 
-std::string MateriaSource::getMateriaType(int idx)
+AMateria* MateriaSource::getMateriaType(int idx)
 {
 	if (idx < 4)
-		return (this->_inventory[idx]->getType());	
+		return (this->_inventory[idx]);	
 	return 0;
 }
 
@@ -77,19 +77,3 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	return 0;
 }
 
-
-/**
- * 
-class MateriaSource : public IMateriaSource {
-	
-	private:
-		AMateria* _invertory[4];
-	public:
-		MateriaSource();
-		virtual ~MateriaSource();
-		MateriaSource(MateriaSource &m);
-		const MateriaSource& operator=(MateriaSource &m);
-		void learnMateria(AMateria* m);
-		AMateria* createMateria(std::string const & type);
-};
-*/
