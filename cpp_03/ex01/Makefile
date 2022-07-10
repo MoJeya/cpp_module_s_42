@@ -1,22 +1,48 @@
-NAME = scavTrap
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/10 12:13:24 by mjeyavat          #+#    #+#              #
+#    Updated: 2022/07/10 12:14:14 by mjeyavat         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = g++
+NAME 		:= 	a.out
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CXX			:= c++
+CPPFLAGS 	:= -Werror -Wextra -Wall -std=c++98
 
-FILES = $(shell find * -iname "*.cpp")
 
-OBJ		=	$(FILES:.cpp=.o)
+FILES 		:= $(shell find ./* -iname "*.cpp")
+OBJ 		:= $(FILES:.cpp=.o)
+HEADERS		:= $(shell find ./* -name "*.hpp")
+
+RED			= "\033[34m"
+X			= "\033[0m"
 
 all: $(NAME)
+	@echo $(RED)
+	@echo "░█████╗░░░░░░░░░░░░░░░"
+	@echo "██╔══██╗░░██╗░░░░██╗░░"
+	@echo "██║░░╚═╝██████╗██████╗"
+	@echo "██║░░██╗╚═██╔═╝╚═██╔═╝"
+	@echo "╚█████╔╝░░╚═╝░░░░╚═╝░░"
+	@echo "░╚════╝░░░░░░░░░░░░░░░"
+	@echo $(X)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CPPFLAGS) -O3 -c $< -o $@
 
 clean:
-	rm -f -r *.o
+	rm -f -r $(shell find ./* -iname "*.o")
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f -r $(NAME)
 
 re: fclean all
