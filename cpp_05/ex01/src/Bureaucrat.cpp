@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 23:18:55 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 13:33:13 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void Bureaucrat::signForm(Form& fr)
 	try{
 		fr.beSigned(*this);
 		std::cout << this->getName() << " signed " << fr;
+		fr.setSign(true);
 	}catch(std::exception & e){
 		std::cout << this->getName() << " couldn’t sign " << fr;
 		std::cout << e.what() << std::endl;
@@ -97,6 +98,6 @@ Bureaucrat& Bureaucrat::operator--(int){
 
 std::ostream& operator<<(std::ostream& cout, Bureaucrat &br)
 {
-	cout << br.getName() << " Bureaucrat grade "<< br.getGrade();
+	cout << br.getName() << " Bureaucrat grade "<< br.getGrade()<< '\n';
 	return (cout);
 }

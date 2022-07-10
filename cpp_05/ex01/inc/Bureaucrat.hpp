@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:03:50 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 22:57:00 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 12:58:10 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Otherwise, it will print something like:
 <bureaucrat> couldn’t sign <form> because <reason>.
 Implement and turn in some tests to ensure everything works as expected.
 */
+class Form;
 
 class Bureaucrat{
 

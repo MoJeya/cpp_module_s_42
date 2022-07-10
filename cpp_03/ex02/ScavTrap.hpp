@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:15:00 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/06/24 16:17:56 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 12:43:26 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ class ScavTrap : public ClapTrap{
 		
 		void attack(const std::string& target);
 		void guardGate( void );
+
 };

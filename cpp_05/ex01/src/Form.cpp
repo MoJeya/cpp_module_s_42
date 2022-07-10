@@ -6,25 +6,23 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:21:25 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/08 23:17:30 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 13:44:07 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 #include "../inc/Bureaucrat.hpp"
 
-Form::Form(){}
-
-Form::Form(std::string &name, int grade, bool sign) : _name(name)
+Form::Form(const std::string &name, Bureaucrat &br, int grade) : _name(name)
 {
-	if (grade < 1)
+	if (br.getGrade() < 1)
 		throw Form::GradeToLow();
-	else if (grade > 150)
+	else if (br.getGrade() > 150)
 		throw Form::GradeToHigh();
 	else
 	{
 		this->_grade = grade;
-		this->_sign = sign;	
+		this->beSigned(br);
 	}
 }
 
@@ -51,7 +49,7 @@ Form::~Form()
 
 Form& Form::beSigned(Bureaucrat &br)
 {
-	if (br.getGrade() > 50)
+	if (br.getGrade() > this->_grade)
 		throw Form::GradeToLow();
 	else
 		this->_sign = true;
@@ -93,8 +91,10 @@ void Form::setGrade(int grade)
 		this->_grade = grade;
 }
 
-std::ostream* operator<<(std::ostream& cout, Form &fr)
+std::ostream& operator<<(std::ostream& cout, Form &fr)
 {
-	std::cout << "Name: " << fr.getName() << " Grade: " << fr.getGrade() << " sign: " << fr.getSign();
+	std::cout << fr.getName() << '\n' 
+		<< "From-Grade: " << fr.getGrade() << '\n' 
+		<< "sign: " << fr.getSign() << '\n';
 	return (cout);
 }
