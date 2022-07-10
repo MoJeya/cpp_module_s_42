@@ -6,25 +6,16 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:21:25 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/10 14:14:06 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 20:48:31 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 #include "../inc/Bureaucrat.hpp"
 
-Form::Form(const std::string &name, Bureaucrat &br, const int grade) : _name(name)
+Form::Form()
 {
-	this->_sign = false;
-	if (br.getGrade() < 1)
-		throw Form::GradeToLow();
-	else if (br.getGrade() > 150)
-		throw Form::GradeToHigh();
-	else
-	{
-		this->_grade = grade;
-		this->beSigned(br);
-	}
+
 }
 
 Form::Form(Form &fr)
