@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/10 20:57:52 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:04:53 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void Bureaucrat::signForm(Form& fr)
 	try{
 		fr.beSigned(*this);
 		std::cout << this->getName() << " signed " << fr;
-		fr.execute(*this); // the execution of a from will be tryed right after the form is success fully signed.
+		this->executeForm(fr); // the execution of a from will be tryed right after the form is success fully signed.
 	}catch(std::exception & e){
 		std::cout << e.what() << std::endl;
 		std::cout << this->getName() << " couldn’t sign " << fr;
@@ -88,8 +88,8 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::executeForm(Form const & form)
 {
 	try{
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
 		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	}catch(std::exception & e)
 	{
 		std::cout << e.what() << std::endl;

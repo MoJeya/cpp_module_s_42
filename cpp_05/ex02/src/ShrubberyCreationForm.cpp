@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 15:18:58 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/10 20:53:31 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:06:19 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void ShrubberyCreationForm::action() const
 	std::ofstream file(this->_target + "_shrubbery", std::ios::trunc);
 	if (!file.is_open())
 	{
-		std::cout << "File uable to open" << std::endl;
+		std::cout << "File unable to open" << std::endl;
 	}
 	else
 	{

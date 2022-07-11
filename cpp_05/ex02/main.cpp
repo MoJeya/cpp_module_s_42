@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:12:27 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/10 20:55:36 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:08:07 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main (void)
 		//////////////////////////////////////////////////////////////////////
 		//*							WRONG GRADE 							//
 		//////////////////////////////////////////////////////////////////////
-		Bureaucrat *br2 = new Bureaucrat("Chunkz", 140);
+		Bureaucrat *br2 = new Bureaucrat("Chunkz", 130);
 		std::cout << *br2 << std::endl; 
 		Form *fr2 = new ShrubberyCreationForm("home");
 		br2->signForm(*(fr2));
