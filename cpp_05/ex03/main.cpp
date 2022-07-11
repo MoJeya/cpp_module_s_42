@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:12:27 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/11 17:09:59 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:30:31 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "inc/RobotomyRequestForm.hpp"
 #include "inc/PresidentialPardonForm.hpp"
 #include "inc/ShrubberyCreationForm.hpp"
+#include "inc/Intern.hpp"
 #include <string>
 
 int main (void)
@@ -23,20 +24,15 @@ int main (void)
 	try{
 		Bureaucrat *br = new Bureaucrat("Bob", 40); //im constructor wird schon der fehler geworfen und im catch wird er ausgegeben
 		std::cout << *br << std::endl;
-		Form *fr = new RobotomyRequestForm("home");
-		//*wenn erfolgreich dann wird alles ab zeile 22 ausgeführt
-		br->signForm(*(fr));
-		//////////////////////////////////////////////////////////////////////
-		//*							WRONG GRADE 							//
-		//////////////////////////////////////////////////////////////////////
-		Bureaucrat *br2 = new Bureaucrat("Chunkz", 140);
-		std::cout << *br2 << std::endl; 
-		Form *fr2 = new ShrubberyCreationForm("home");
-		br2->signForm(*(fr2));
+		Intern someRandomeIntern;
+		Form*	rrf;
+		
+		rrf = someRandomeIntern.makeForm("Robotomy Request Form", "Bender");
+		br->signForm(*(rrf));
+		delete br;
 	}catch(std::exception & e){
 		std::cout << e.what() << std::endl;
 	}
-
 	return 0;
 	
 }

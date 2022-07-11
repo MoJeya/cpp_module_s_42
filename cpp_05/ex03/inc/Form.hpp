@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:02 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/11 16:29:52 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 20:32:39 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Bureaucrat;
 
 class Form{
 
-	private:
+	protected:
 		std::string _name;
 		bool 		_sign;
 		int 		_grade;
@@ -39,13 +39,13 @@ class Form{
 			}
 		};
 		
-		Form();
-		Form(const std::string &name);
-		
+		Form();		
 		Form(Form &fr);
 		Form& operator=(Form &fr);
 		~Form();
 		
+		virtual void action()const = 0;
+		virtual void execute(Bureaucrat const &executor) const = 0;
 		Form& beSigned(Bureaucrat &br);
 
 		std::string getName() const;

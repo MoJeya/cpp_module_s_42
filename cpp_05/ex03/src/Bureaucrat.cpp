@@ -6,11 +6,12 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/11 16:04:13 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:04:53 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -62,6 +63,18 @@ void Bureaucrat::setGrade(int grade)
 		this->_grade = grade;	
 }
 
+void Bureaucrat::signForm(Form& fr)
+{
+	try{
+		fr.beSigned(*this);
+		std::cout << this->getName() << " signed " << fr;
+		this->executeForm(fr); // the execution of a from will be tryed right after the form is success fully signed.
+	}catch(std::exception & e){
+		std::cout << e.what() << std::endl;
+		std::cout << this->getName() << " couldn’t sign " << fr;
+	}
+}
+
 std::string Bureaucrat::getName() const
 {
 	return (this->_name);
@@ -72,46 +85,30 @@ int Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
-Bureaucrat& Bureaucrat::operator++(){
-	if (this->getGrade() > 150)
-		throw Bureaucrat::GradeToLow();
-	if (this->getGrade() < 1)
-		throw Bureaucrat::GradeToHigh();
+void Bureaucrat::executeForm(Form const & form)
+{
+	try{
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
+		form.execute(*this);
+	}catch(std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+Bureaucrat& Bureaucrat::operator++(int){
 	this->setGrade(this->getGrade()+1);
 	return (*this);	
 }
 
-Bureaucrat Bureaucrat::operator++(int){
-	Bureaucrat tmp = *this;
-	++*this;
-	if (this->getGrade() < 1)
-		throw Bureaucrat::GradeToHigh();
-	if (this->getGrade() > 150)
-		throw Bureaucrat::GradeToLow();
-	return (tmp);
-}
-
-Bureaucrat& Bureaucrat::operator--(){
-	if (this->getGrade() < 1)
-		throw Bureaucrat::GradeToHigh();
-	if (this->getGrade() > 150)
-		throw Bureaucrat::GradeToLow();
+Bureaucrat& Bureaucrat::operator--(int){
 	this->setGrade(this->getGrade()-1);
 	return (*this);
 }
 
-Bureaucrat Bureaucrat::operator--(int){
-	Bureaucrat tmp = *this;
-	--*this;
-	if (this->getGrade() < 1)
-		throw Bureaucrat::GradeToHigh();
-	if (this->getGrade() > 150)
-		throw Bureaucrat::GradeToLow();
-	return (tmp);
-}
 
 std::ostream& operator<<(std::ostream& cout, Bureaucrat &br)
 {
-	cout << br.getName() << " Bureaucrat grade "<< br.getGrade();
+	cout << br.getName() << " Bureaucrat grade "<< br.getGrade()<< '\n';
 	return (cout);
 }

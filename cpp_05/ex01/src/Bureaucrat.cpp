@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 18:15:36 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/10 13:33:13 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/11 16:32:07 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void Bureaucrat::signForm(Form& fr)
 	try{
 		fr.beSigned(*this);
 		std::cout << this->getName() << " signed " << fr;
-		fr.setSign(true);
 	}catch(std::exception & e){
 		std::cout << this->getName() << " couldn’t sign " << fr;
 		std::cout << e.what() << std::endl;

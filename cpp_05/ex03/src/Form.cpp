@@ -6,17 +6,16 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:21:25 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/11 16:30:56 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/10 20:48:31 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 #include "../inc/Bureaucrat.hpp"
 
-Form::Form(const std::string &name) : _name(name)
+Form::Form()
 {
-	this->_sign = false;
-	this->_grade = 1;
+
 }
 
 Form::Form(Form &fr)
