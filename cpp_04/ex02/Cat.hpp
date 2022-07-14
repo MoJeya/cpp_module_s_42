@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:30:24 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/04 17:19:47 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/14 19:10:55 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Cat : public Animal{
 		Cat();
 		Cat(Cat &c);
 		Cat& operator=(Cat &c);
+		std::string getType();
 		virtual void makeSound();
 		std::string getIdea();
 		~Cat();

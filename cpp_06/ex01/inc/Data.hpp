@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:30:00 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/14 19:01:23 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/13 19:10:35 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/13 19:38:19 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#pragma once
 
-Animal::~Animal()
-{
-	std::cout << this->_type << ": " << "\033[32mdestructed\033[0m" << std::endl;
-}
+#include <iostream>
+
+typedef struct{
+	std::string _name;
+}Data;
+
+uintptr_t serialize(Data* ptr);
+Data* deserialize(uintptr_t raw);

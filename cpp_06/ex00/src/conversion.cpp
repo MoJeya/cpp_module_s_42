@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:07:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/13 17:00:01 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/14 20:28:42 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,11 @@ int Conversion::ConvertToInt()
 		throw Conversion::Impossible();
 	else
 	{
-		int res = std::stoi(this->_type);
+		char *tmp = new char[static_cast<int>(this->_type.size())];
+		char *end;
+		std::strcpy(tmp, this->_type.c_str());
+		int res = static_cast<int>(std::strtod(tmp, &end));
+		delete [] tmp;
 		return res;	
 	}
 	return 0;
@@ -69,13 +73,20 @@ int Conversion::ConvertToInt()
 
 float Conversion::ConvertToFloat()
 {
-	float res = std::stof(this->_type);
+	char *tmp = new char [static_cast<int>(this->_type.size())];
+	std::strcpy(tmp, this->_type.c_str());
+	char *end;
+	float res = std::strtof(tmp, &end);
+	delete [] tmp;
 	return res;
 }
 
 double Conversion::ConvertToDouble()
 {
-	double res = std::stof(this->_type);
+	char *tmp = new char[static_cast<int>(this->_type.size())];
+	char *end;
+	std::strcpy(tmp, this->_type.c_str());
+	double res = std::strtod(tmp, &end);
 	return res;
 }
 
@@ -107,10 +118,9 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 	{
 		try{
 			std::cout << "Char: " << c.ConvertToChar() << '\n' << 
-			"int: " << c.ConvertToInt() << '\n' <<
-			"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
-			"float: " << std::fixed << std::setprecision(2) << 
-			c.ConvertToFloat() << "f";	
+			"int: " << static_cast<int>(c.ConvertToFloat()) << '\n' <<
+			"double: " << std::fixed << std::setprecision(2) << static_cast<double>(c.ConvertToFloat()) << '\n' <<
+			"float: " << c.ConvertToFloat() << "f";	
 		}catch(std::exception & e)
 		{
 			if (std::stoi(c.getType()) >= 0)
@@ -118,8 +128,7 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 				std::cout << e.what() << '\n' <<
 				"int: " << c.ConvertToInt() << '\n' <<
 				"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
-				"float: " << std::fixed << std::setprecision(2) << 
-				c.ConvertToFloat() << "f";
+				"float: " << c.ConvertToFloat() << "f";
 			}
 			else
 			{
@@ -137,10 +146,9 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 	{
 		try{
 			std::cout << "Char: " << c.ConvertToChar() << '\n' << 
-			"int: " << c.ConvertToInt() << '\n' <<
-			"double: " << c.getType() << '\n' <<
-			"float: " << std::fixed << std::setprecision(2) << 
-			c.ConvertToFloat() << "f";
+			"int: " << static_cast<int>(c.ConvertToDouble()) << '\n' <<
+			"double: " <<std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
+			"float: " << std::fixed << std::setprecision(2) << static_cast<float>(c.ConvertToDouble()) << "f";
 
 		}catch(std::exception & e)
 		{
@@ -166,9 +174,8 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 		try{
 			std::cout << "Char: " << c.ConvertToChar() << '\n' <<
 			"int: " << c.ConvertToInt() << '\n' << 
-			"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
-			"float: " << std::fixed << std::setprecision(2) << 
-			c.ConvertToFloat() << "f";
+			"double: " << std::fixed << std::setprecision(2) <<c .ConvertToDouble() << '\n' <<
+			"float: " << std::fixed << std::setprecision(2) << c.ConvertToFloat() << "f";
 			
 		}catch(std::exception & e)
 		{

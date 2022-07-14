@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:46:34 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/12 19:38:59 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/14 19:29:25 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
 	}catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
-	}
-
+	}	
 	return 0;
 }
