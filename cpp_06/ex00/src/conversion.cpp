@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:07:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/14 20:28:42 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/14 21:20:18 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ Conversion::Conversion(){
 Conversion::Conversion(std::string type)
 {
 	if (isFloatNumber(type))
-	{
 		this->_type = type;
-	}
 	else if (isDoubleNumber(type))
-	{
-		
 		this->_type = type;
-	}
+	else if (static_cast<int>(type.size()) == 1)
+		this->_type = type;
 	else
 	{
 		if (type != "nan")
@@ -65,6 +62,7 @@ int Conversion::ConvertToInt()
 		char *end;
 		std::strcpy(tmp, this->_type.c_str());
 		int res = static_cast<int>(std::strtod(tmp, &end));
+		std::cout << "result: " << std::strtod(tmp, &end) << std::endl;
 		delete [] tmp;
 		return res;	
 	}
@@ -87,6 +85,7 @@ double Conversion::ConvertToDouble()
 	char *end;
 	std::strcpy(tmp, this->_type.c_str());
 	double res = std::strtod(tmp, &end);
+	delete [] tmp;
 	return res;
 }
 
@@ -99,9 +98,13 @@ char Conversion::ConvertToChar()
 	}
 	else
 	{
-		char res = std::stoi(this->_type);
+		
+		//TODO if type size == 1 then char res   = this->_type[0]
+		char res = ConvertToInt();
 		if (static_cast<int>(res) <= 0 || static_cast<int>(res) > 255)
+		{
 			throw Conversion::NonDisplayble();
+		}
 		return res;
 	}
 	
@@ -114,6 +117,7 @@ Conversion::~Conversion(){}
 
 std::ostream& operator<<(std::ostream& cout, Conversion& c)
 {
+	//TODO: if isChar than convert typecast from char to every thing else.
 	if (isFloatNumber(c.getType()))
 	{
 		try{
@@ -123,7 +127,7 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 			"float: " << c.ConvertToFloat() << "f";	
 		}catch(std::exception & e)
 		{
-			if (std::stoi(c.getType()) >= 0)
+			if (c.ConvertToFloat() >= 0)
 			{
 				std::cout << e.what() << '\n' <<
 				"int: " << c.ConvertToInt() << '\n' <<
@@ -152,7 +156,7 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 
 		}catch(std::exception & e)
 		{
-			if (std::stoi(c.getType()) >= 0)
+			if (c.ConvertToInt() >= 0)
 			{
 				std::cout << e.what() << '\n' <<
 				"int: " << c.ConvertToInt() << '\n' <<
@@ -179,7 +183,7 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 			
 		}catch(std::exception & e)
 		{
-			if (c.getType() != "nan" && std::stoi(c.getType()) >= 0)
+			if (c.getType() != "nan" && c.ConvertToInt() >= 0)
 			{
 				std::cout << e.what() << '\n' <<
 				"int: " << c.ConvertToInt() << '\n' <<
