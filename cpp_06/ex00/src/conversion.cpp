@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:07:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/15 12:54:27 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/15 13:04:18 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,15 @@ char Conversion::ConvertToChar()
 	}
 	else
 	{
-		
-		//TODO if type size == 1 then char res   = this->_type[0]
 		if (isCharSing(this->_type))
 		{
 			char res = static_cast<char>(this->_type[0]);
 			return res;
 		}
+		
 		char res = ConvertToInt();
 		if (static_cast<int>(res) <= 0 || static_cast<int>(res) < 32)
-		{
 			throw Conversion::NonDisplayble();
-		}
 		return res;
 	}
 	
@@ -147,8 +144,6 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 			}
 			
 		}
-		
-		
 	}
 	else if (isCharSing(c.getType()))
 	{
