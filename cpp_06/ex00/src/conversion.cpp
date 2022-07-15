@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:07:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/14 21:20:18 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/15 12:54:27 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Conversion::Conversion(std::string type)
 		this->_type = type;
 	else if (isDoubleNumber(type))
 		this->_type = type;
-	else if (static_cast<int>(type.size()) == 1)
+	else if (isCharSing(type))
 		this->_type = type;
 	else
 	{
@@ -62,7 +62,6 @@ int Conversion::ConvertToInt()
 		char *end;
 		std::strcpy(tmp, this->_type.c_str());
 		int res = static_cast<int>(std::strtod(tmp, &end));
-		std::cout << "result: " << std::strtod(tmp, &end) << std::endl;
 		delete [] tmp;
 		return res;	
 	}
@@ -82,9 +81,9 @@ float Conversion::ConvertToFloat()
 double Conversion::ConvertToDouble()
 {
 	char *tmp = new char[static_cast<int>(this->_type.size())];
-	char *end;
+
 	std::strcpy(tmp, this->_type.c_str());
-	double res = std::strtod(tmp, &end);
+	double res = std::strtod(tmp, NULL);
 	delete [] tmp;
 	return res;
 }
@@ -100,8 +99,13 @@ char Conversion::ConvertToChar()
 	{
 		
 		//TODO if type size == 1 then char res   = this->_type[0]
+		if (isCharSing(this->_type))
+		{
+			char res = static_cast<char>(this->_type[0]);
+			return res;
+		}
 		char res = ConvertToInt();
-		if (static_cast<int>(res) <= 0 || static_cast<int>(res) > 255)
+		if (static_cast<int>(res) <= 0 || static_cast<int>(res) < 32)
 		{
 			throw Conversion::NonDisplayble();
 		}
@@ -145,6 +149,24 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 		}
 		
 		
+	}
+	else if (isCharSing(c.getType()))
+	{
+		try{
+			std::cout << "Char: " << c.ConvertToChar() << '\n' <<
+			"int: " << static_cast<int>(c.ConvertToChar()) << '\n' <<
+			"double: " << std::fixed << std::setprecision(2) << static_cast<double>(c.ConvertToChar()) << '\n' <<
+			"float: " <<  std::fixed << std::setprecision(2) << static_cast<float>(c.ConvertToChar()) << 'f'; 
+		}catch(std::exception & e)
+		{
+			if (c.ConvertToFloat() >= 0)
+			{
+				std::cout << e.what() << '\n' <<
+				"int: " << c.ConvertToInt() << '\n' <<
+				"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
+				"float: " << std::fixed << std::setprecision(2) << c.ConvertToFloat() << "f";
+			}
+		}
 	}
 	else if (isDoubleNumber(c.getType()))
 	{
