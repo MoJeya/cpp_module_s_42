@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:34:01 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/18 18:57:23 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:12:28 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,45 @@ template<typename t>
 class Array{
 	
 	private:
-		t ar[];
+		unsigned int count;
+		t *ar;
+	public:
 	
-	Array();
-	Array(size_t len);
-	Array(Array &a);
-	Array& operator=(Array& a);
-
-	class OutOfBound : public std::exception {
-		const char * what () const throw () {
-			return "\033[31m Array out of Bound\033[0m";
+		Array() : count(0), ar(NULL){
 		}
-	};
-}
+		
+		Array(unsigned int len) : count(len), ar(new t[len]){
+		}
+		
+		Array(Array &a)
+		{
+			*this = a;
+		}
+
+		Array& operator=(Array& a){
+			if (this != &a)
+			{
+				this->count = a.count;
+				this->ar = new Array(*a.count);
+				for(unsigned int i = 0; i < count; i++)
+				{
+					this->ar[i] = a.ar[i];
+				}
+			}
+		}
+
+		unsigned int getSize(){return count;}
+				
+		class OutOfBound : public std::exception{
+			const char * what() const throw () {
+				return "\033[31m Out of Bound\033[0m";
+			}
+		};
+
+		t& operator[](unsigned int index)
+		{
+			if (index >= count)
+				throw OutOfBound();
+			return ar[index];			 
+		}
+};
