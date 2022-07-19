@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:07:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/18 15:00:15 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:53:44 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ Conversion::Conversion(std::string type)
 	{
 		if (type != "nan")
 		{
-			if (static_cast<int>(type.size()) > 1 && !std::isdigit(type[0]))
+			int j = 0;
+			if (type[0] == '-' && std::isdigit(type[1]))
+				j++;
+			else if (static_cast<int>(type.size()) > 1 && !std::isdigit(type[0]))
 				throw std::invalid_argument("\033[31m Invalid Argument\033[0m");
-			for (int i = 0; i < static_cast<int>(type.size()); i++)
+			for (int i = j; i < static_cast<int>(type.size()); i++)
 			{
 				if (!std::isdigit(type[i]))
 					throw std::invalid_argument("\033[31m Invalid Argument\033[0m");
