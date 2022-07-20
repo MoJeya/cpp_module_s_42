@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 20:55:42 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/20 19:41:03 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/20 19:46:10 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/20 21:05:20 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#pragma once
 
-int main( void )
-{
-	std::vector<int> a;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+class Span{
+
+	private:
+		unsigned int _nMax;
+		std::vector<int> _a;
 	
-	a.push_back(5);
-	a.push_back(1);
-	a.push_back(2);
-	a.push_back(9);
-	
-	try{
-		std::cout << *easyfind(a, 5) << std::endl;
-	}catch(std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
-}
+	public:
+		Span();
+		Span(unsigned int N);
+		Span(Span &sp);
+		Span& operator=(Span &sp);
+		~Span();
+		int shortestSpan();
+		int longestSpan();
+		void addNumber(int num);
+		
+};

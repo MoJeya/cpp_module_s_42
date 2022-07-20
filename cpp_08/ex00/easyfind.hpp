@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:38:39 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/20 14:49:37 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:41:35 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Notfound : public std::exception{
 };
 
 template<typename T>
-typename T::iterator easyfind(T &ar, int num)
+typename T::iterator easyfind(T &ar, int num) //iterator an einem Template
 {
 	typename T::iterator it = std::find(ar.begin(), ar.end(), num);
 	if (it == ar.end())
