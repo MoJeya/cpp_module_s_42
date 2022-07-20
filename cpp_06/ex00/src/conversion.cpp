@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:07:22 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/19 14:53:44 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:28:15 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,11 @@ double Conversion::ConvertToDouble()
 
 char Conversion::ConvertToChar()
 {
-	if (this->_type == "nan")
+	// std::cout << "res: " <<  ConvertToInt() << std::endl;
+	if (this->_type == "nan" || (ConvertToInt() > 255 || ConvertToInt() < 0))
 	{
 		throw Conversion::Impossible();
-		return 0;
+		return(ConvertToInt());
 	}
 	else
 	{
@@ -107,7 +108,7 @@ char Conversion::ConvertToChar()
 		}
 		
 		char res = ConvertToInt();
-		if (static_cast<int>(res) <= 0 || static_cast<int>(res) < 32)
+		if ((ConvertToInt() >= 0 && ConvertToInt() < 33) || ConvertToInt() > 129)
 			throw Conversion::NonDisplayble();
 		return res;
 	}
@@ -131,20 +132,11 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 			"float: " << c.ConvertToFloat() << "f";	
 		}catch(std::exception & e)
 		{
-			if (c.ConvertToFloat() >= 0)
-			{
-				std::cout << e.what() << '\n' <<
-				"int: " << c.ConvertToInt() << '\n' <<
-				"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
-				"float: " << c.ConvertToFloat() << "f";
-			}
-			else
-			{
-				std::cout << e.what() << '\n' << 
-				"int: " << e.what() << '\n' <<
-				"double: " << c.getType() << '\n' <<
-				"float: " << c.getType();
-			}
+			
+			std::cout << e.what() << '\n' << 
+			"int: " << c.ConvertToInt() << '\n' <<
+			"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble()<< '\n' <<
+			"float: " << c.ConvertToFloat() << "f";
 			
 		}
 	}
@@ -176,34 +168,25 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 
 		}catch(std::exception & e)
 		{
-			if (c.ConvertToInt() >= 0)
-			{
-				std::cout << e.what() << '\n' <<
-				"int: " << c.ConvertToInt() << '\n' <<
-				"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
-				"float: " << std::fixed << std::setprecision(2) << 
-				c.ConvertToFloat() << "f";
-			}
-			else
-			{
-				std::cout << e.what() << '\n' << 
-				"int: " << e.what() << '\n' <<
-				"double: " << std::fixed << std::setprecision(2)<< c.ConvertToDouble() << '\n' <<
-				"float: " << c.getType() << "f";
-			}
+			std::cout << e.what() << '\n' <<
+			"int: " << c.ConvertToInt() << '\n' <<
+			"double: " << std::fixed << std::setprecision(2) << c.ConvertToDouble() << '\n' <<
+			"float: " << std::fixed << std::setprecision(2) << 
+			c.ConvertToFloat() << "f";
+	
 		}
 	}
 	else
 	{
 		try{
-			std::cout << "Char: " << c.ConvertToChar() << '\n' <<
+			std::cout << "char: " << c.ConvertToChar() << '\n' <<
 			"int: " << c.ConvertToInt() << '\n' << 
 			"double: " << std::fixed << std::setprecision(2) <<c .ConvertToDouble() << '\n' <<
 			"float: " << std::fixed << std::setprecision(2) << c.ConvertToFloat() << "f";
 			
 		}catch(std::exception & e)
 		{
-			if (c.getType() != "nan" && c.ConvertToInt() >= 0)
+			if (c.getType() != "nan")
 			{
 				std::cout << e.what() << '\n' <<
 				"int: " << c.ConvertToInt() << '\n' <<
@@ -213,9 +196,9 @@ std::ostream& operator<<(std::ostream& cout, Conversion& c)
 			}
 			else
 			{
-				std::cout <<e.what() << '\n' <<
+				std::cout << e.what() << '\n' <<
 				"pnt: " << e.what() << '\n' << 
-				"double: " << c.getType() << '\n' <<
+				"double: " << c.ConvertToDouble() << '\n' <<
 				"float: " << c.getType() << "f";
 			}
 		}

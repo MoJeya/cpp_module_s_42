@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:38:39 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/19 21:00:05 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:49:37 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,34 @@
 
 #include <algorithm>
 #include <iostream>
+#include <vector>
+// typename T::iterator easyfind(T &con, int i)
+
+/**
+ cpp referenc
+template<class InputIterator, class T>
+  InputIterator find (InputIterator first, InputIterator last, const T& val)
+{
+  while (first!=last) {
+    if (*first==val) return first;
+    ++first;
+  }
+  return last;
+}
+*/
+
+class Notfound : public std::exception{
+	const char * what() const throw () {
+		return "\033[31m Not Found\033[0m";
+	}
+};
 
 template<typename T>
-T easyfind(T *ar, int num)
+typename T::iterator easyfind(T &ar, int num)
 {
-	T::iterator cnt;
-	for(cnt = ar.begin(); cnt != ar.end(); ++cnt)
-	{
-		if (*cnt == num)
-		{
-			std::cout << "Num Found" << std::endl;
-			return (*cnt);
-		}
-	}
-	return (*ar->end());
-}
+	typename T::iterator it = std::find(ar.begin(), ar.end(), num);
+	if (it == ar.end())
+		throw Notfound();
+	return (it);
+};
+
