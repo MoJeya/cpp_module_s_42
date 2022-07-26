@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 19:38:39 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/26 18:51:05 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/26 13:38:13 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/26 16:53:51 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-#include <algorithm>
 #include <iostream>
-#include <vector>
-
-class Notfound : public std::exception{
-	const char * what() const throw () {
-		return "\033[31m Not Found\033[0m";
-	}
-};
+#include <algorithm>
+#include <iterator>
+#include <deque>
+#include <stack>
 
 template<typename T>
-typename T::iterator easyfind(T &ar, int num) //iterator an einem Template
-{
-	typename T::iterator it = std::find(ar.begin(), ar.end(), num);
-	if (it == ar.end())
-		throw Notfound();
-	return (it);
+class MutantStack : public std::stack<T>{	
+	
+	public:
+	// expose just the iterators of the underlying container
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	iterator begin() { return this->c.begin();} 
+	iterator end() { return this->c.end();}
+	iterator begin() const {return this->c.begin();}
+	iterator end() const { return this->c.end();}
 };
-
