@@ -5,27 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 18:14:11 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/25 19:26:13 by mjeyavat         ###   ########.fr       */
+/*   Created: 2022/07/26 15:11:27 by mjeyavat          #+#    #+#             */
+/*   Updated: 2022/07/26 20:52:17 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/inter.hpp"
+#include "inc/MutantStack.hpp"
+#include <list>
 
-int main(void)
+int main()
 {
-	int ar[] = { 1 , 2 , 3, 4, 5};
-	iter<int>(ar, 5, addFive<int>);
-	for(int i = 0; i < 5; i++)
-	{
-		std::cout << ar[i] << std::endl;
-	}
-	std::cout << std::endl;
 	
-	float FAr[] = {1.24f, 2.134f, 3.324f, 4.564f};
-	iter<float>(FAr, 4, addFive<float>);
-	for(int i = 0; i < 4; i++)
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
 	{
-		std::cout << FAr[i] << std::endl;
+		std::cout << *it << std::endl;
+		++it;
 	}
+	std::stack<int> s(mstack);
+	return 0;
 }
