@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:46:10 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/26 19:53:42 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:30:29 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,19 @@
 class Span{
 
 	private:
-		unsigned int _nMax;
+		const unsigned int _nMax;
 		std::vector<int> _a;
 	
 	public:
 		Span();
 		Span(unsigned int N);
-		// Span(Span &sp);
-		Span& operator=(Span &sp);
+		Span(const Span &sp);
+		Span& operator=(const Span &sp);
 		~Span();
 		int shortestSpan();
 		int longestSpan();
 		void addNumber(int num);
+		void addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
 
 		class NoSpan : public std::exception {
 			const char * what() const throw () {

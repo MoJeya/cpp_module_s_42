@@ -6,26 +6,34 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:55:42 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/20 19:41:03 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:51:25 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 
-int main( void )
+int main(void)
 {
-	std::vector<int> a;
-	
-	a.push_back(5);
-	a.push_back(1);
-	a.push_back(2);
-	a.push_back(9);
-	
-	try{
-		std::cout << *easyfind(a, 5) << std::endl;
-	}catch(std::exception & e)
+	int to_find = 300;
+	int content[] = {1324, 4068, 20349, 203847, 1, 23408234, 23482, 23948, to_find};
+	std::vector<int> vec(content, content + sizeof(content) / sizeof(int));
+	try
 	{
-		std::cout << e.what() << std::endl;
+		std::vector<int>::const_iterator it = easyfind(vec, to_find);
+		std::cout << *it << std::endl;
 	}
-	return (0);
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	to_find = 301;
+	try
+	{
+		std::vector<int>::const_iterator it = easyfind(vec, to_find);
+		std::cout << *it << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

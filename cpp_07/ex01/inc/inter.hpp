@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:03:33 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/18 18:18:08 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/27 12:13:41 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ template<typename t>
 t addFive(t a)
 {
 	a += 5;
+	return (a);
+}
+
+template<typename t>
+t print(t a)
+{
+	std::cout << a << std::endl;
 	return (a);
 }
 

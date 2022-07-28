@@ -6,7 +6,7 @@
 /*   By: mjeyavat <mjeyavat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:34:01 by mjeyavat          #+#    #+#             */
-/*   Updated: 2022/07/19 14:12:28 by mjeyavat         ###   ########.fr       */
+/*   Updated: 2022/07/27 11:35:33 by mjeyavat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,18 @@ class Array{
 			*this = a;
 		}
 
-		Array& operator=(Array& a){
+		Array& operator=(Array& a)
+		{
 			if (this != &a)
 			{
 				this->count = a.count;
-				this->ar = new Array(*a.count);
-				for(unsigned int i = 0; i < count; i++)
+				this->ar = new t[a.count];
+				for(unsigned int i = 0; i < this->count; i++)
 				{
 					this->ar[i] = a.ar[i];
 				}
 			}
+			return *this;
 		}
 
 		unsigned int getSize(){return count;}
